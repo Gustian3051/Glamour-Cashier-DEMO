@@ -1,0 +1,73 @@
+class User {
+  // Properties
+  int idUser;
+  String username;
+  String password;
+
+  // Constructor
+  User({
+    required this.idUser,
+    required this.username,
+    required this.password,
+  });
+
+  // Getters
+  int get getIdUser => idUser;
+
+  String get getUsername => username;
+
+  String get getPassword => password;
+}
+
+class Admin extends User {
+  // Additional properties for Admin
+  String role;
+
+  // Constructor for Admin
+  Admin({
+    required int idUser,
+    required String username,
+    required String password,
+    required this.role,
+  }) : super(idUser: idUser, username: username, password: password);
+
+  // Getter for Admin
+  String get getRole => role;
+}
+
+class Kasir extends User {
+  // Additional properties for Kasir
+  String shift;
+
+  // Constructor for Kasir
+  Kasir({
+    required int idUser,
+    required String username,
+    required String password,
+    required this.shift,
+  }) : super(idUser: idUser, username: username, password: password);
+
+  // Getter for Kasir
+  String get getShift => shift;
+}
+
+void main() {
+  // Creating instances of Admin and Kasir
+  Admin adminUser = Admin(
+    idUser: 1,
+    username: "admin123",
+    password: "adminpass",
+    role: "Administrator",
+  );
+
+  Kasir kasirUser = Kasir(
+    idUser: 2,
+    username: "kasir456",
+    password: "kasirpass",
+    shift: "Morning",
+  );
+
+  // Accessing properties using getters
+  print("Admin ID: ${adminUser.getIdUser}, Role: ${adminUser.getRole}");
+  print("Kasir ID: ${kasirUser.getIdUser}, Shift: ${kasirUser.getShift}");
+}
